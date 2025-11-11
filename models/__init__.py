@@ -6,7 +6,7 @@ from .comment import Comment
 from .label import Label
 from .association_tables import (
     board_members,
-    card_labels,
+    cards_labels,
     card_assignees
 )
 __all__ = [
@@ -17,6 +17,6 @@ __all__ = [
     "Comment",
     "Label",
     "board_members",
-    "card_labels",
+    "cards_labels",
     "card_assignees"
 ]
