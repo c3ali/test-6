@@ -1,7 +1,9 @@
 from datetime import datetime
-from typing import Optional
+from typing import Optional, TYPE_CHECKING
 from pydantic import BaseModel, ConfigDict
-from schemas import CardResponse
+
+if TYPE_CHECKING:
+    from schemas.card import CardResponse
 class ListBase(BaseModel):
     title: str
     board_id: int
@@ -16,5 +18,5 @@ class ListResponse(ListBase):
     id: int
     created_at: datetime
     updated_at: datetime
-    cards: list[CardResponse] = []
+    cards: list["CardResponse"] = []
     model_config = ConfigDict(from_attributes=True)

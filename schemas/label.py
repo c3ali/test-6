@@ -1,13 +1,13 @@
 from datetime import datetime
 from pydantic import BaseModel
-from schemas import BaseSchema
-class LabelBase(BaseSchema):
+
+class LabelBase(BaseModel):
     name: str
     color: str
     board_id: int | None = None
 class LabelCreate(LabelBase):
     pass
-class LabelUpdate(BaseSchema):
+class LabelUpdate(BaseModel):
     name: str | None = None
     color: str | None = None
     board_id: int | None = None
