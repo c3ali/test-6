@@ -1,4 +1,4 @@
-from schemas.user import UserBase, UserCreate, UserUpdate, UserResponse
+from schemas.user import UserBase, UserCreate, UserUpdate, UserResponse, Token, TokenRefresh
 from schemas.board import BoardBase, BoardCreate, BoardUpdate, BoardResponse
 from schemas.list import ListBase, ListCreate, ListUpdate, ListResponse
 from schemas.card import CardBase, CardCreate, CardUpdate, CardResponse
@@ -6,7 +6,7 @@ from schemas.comment import CommentBase, CommentCreate, CommentUpdate, CommentRe
 from schemas.label import LabelBase, LabelCreate, LabelUpdate, LabelResponse
 from schemas.websocket import WebSocketMessage
 __all__ = [
-    "UserBase", "UserCreate", "UserUpdate", "UserResponse",
+    "UserBase", "UserCreate", "UserUpdate", "UserResponse", "Token", "TokenRefresh",
     "BoardBase", "BoardCreate", "BoardUpdate", "BoardResponse",
     "ListBase", "ListCreate", "ListUpdate", "ListResponse",
     "CardBase", "CardCreate", "CardUpdate", "CardResponse",
