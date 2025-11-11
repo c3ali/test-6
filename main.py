@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from middleware.cors import add_cors_middleware
+from middleware.cors import setup_cors
 from middleware.logging import LoggingMiddleware
 from api.v1.api import api_router
 from config import settings
@@ -9,7 +9,7 @@ app = FastAPI(
     version=settings.APP_VERSION,
     description=settings.APP_DESCRIPTION
 )
-add_cors_middleware(app)
+setup_cors(app)
 app.add_middleware(LoggingMiddleware)
 app.include_router(api_router, prefix="/api/v1")
 @app.get("/health")
