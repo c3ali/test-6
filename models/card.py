@@ -2,7 +2,7 @@ from sqlalchemy import ForeignKey, func, Index, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from datetime import datetime
 from database import Base
-from models.association_tables import card_labels
+from models.association_tables import cards_labels
 class Card(Base):
     __tablename__ = "cards"
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
@@ -17,7 +17,7 @@ class Card(Base):
     list: Mapped["List"] = relationship(back_populates="cards")
     assigned_user: Mapped["User | None"] = relationship(back_populates="assigned_cards")
     comments: Mapped[list["Comment"]] = relationship(back_populates="card", cascade="all, delete-orphan")
-    labels: Mapped[list["Label"]] = relationship(secondary=card_labels, back_populates="cards")
+    labels: Mapped[list["Label"]] = relationship(secondary=cards_labels, back_populates="cards")
     __table_args__ = (
         Index("idx_cards_list_id", "list_id"),
         Index("idx_cards_assigned_user_id", "assigned_user_id"),
