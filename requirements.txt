@@ -17,3 +17,4 @@ httpx==0.25.2
 PyJWT
 starlette
 loguru==0.7.2
+email-validator==2.1.0
