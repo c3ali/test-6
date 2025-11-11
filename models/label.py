@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import Mapped, relationship
 from database import Base
-from models import Card, Board, card_label_association
+from models.association_tables import cards_labels
 class Label(Base):
     __tablename__ = "labels"
     id = Column(Integer, primary_key=True, index=True)
@@ -11,6 +11,6 @@ class Label(Base):
     board: Mapped["Board"] = relationship("Board", back_populates="labels")
     cards: Mapped[list["Card"]] = relationship(
         "Card",
-        secondary=card_label_association,
+        secondary=cards_labels,
         back_populates="labels"
     )
